@@ -20,10 +20,10 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public List<Client> findAll() {
-        // ⚡ Aquí solo usamos la llamada normal, el "truco" será con Postman query param
+        
         return userFeignClient.list().getBody().stream()
             .map(user -> {
-                // Log opcional para ver en consola qué puerto responde
+              
                 System.out.println("Cliente desde puerto: " + user.port());
 
                 return new Client(
